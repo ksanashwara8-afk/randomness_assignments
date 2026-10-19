@@ -6,7 +6,7 @@ function setup() {
             WIDTH: 400,
             HEIGHT: 300,
             FPS: 50,
-            TITLE: "Random",
+            TITLE: "Random points",
         },
     };
 
