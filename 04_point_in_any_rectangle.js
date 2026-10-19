@@ -5,8 +5,14 @@ function setup() {
         screen: {
             WIDTH: 400,
             HEIGHT: 300,
-            FPS: 50,
+            FPS: 30,
             TITLE: "Random points in any rectangle",
+        },
+        rect: {
+            x: 70,
+            y: 70,
+            width: 250,
+            height: 180,
         },
     };
 
@@ -18,19 +24,21 @@ function setup() {
     return world;
 }
 
-function drawPoints(world, color) {
-    const x = Math.floor(Math.random() * world.screen.WIDTH);
-    const y = Math.floor(Math.random() * world.screen.HEIGHT);
-    r.DrawCircle(x, y, 3, color);
+function drawPoints(rect, color) {
+    const x = Math.floor(Math.random() * rect.width + rect.x);
+    const y = Math.floor(Math.random() * rect.height + rect.y);
+    r.DrawCircle(x, y, 5, color);
 }
 
 function draw(world) {
     r.BeginDrawing();
-    r.ClearBackground(r.BLUE);
+    r.ClearBackground(r.DARKBLUE);
     const color = { r: 255, g: 255, b: 255, a: 180 };
 
+    r.DrawRectangleLinesEx(world.rect, 1, r.WHITE);
+
     for (let i = 0; i < 80; i++) {
-        drawPoints(world, color);
+        drawPoints(world.rect, color);
     }
 
     r.EndDrawing();

@@ -5,7 +5,7 @@ function setup() {
         screen: {
             WIDTH: 400,
             HEIGHT: 300,
-            FPS: 50,
+            FPS: 30,
             TITLE: "Random points",
         },
     };
@@ -18,19 +18,19 @@ function setup() {
     return world;
 }
 
-function drawPoints(world, color) {
-    const x = Math.floor(Math.random() * world.screen.WIDTH);
-    const y = Math.floor(Math.random() * world.screen.HEIGHT);
-    r.DrawCircle(x, y, 3, color);
+function drawPoints(screen, color) {
+    const x = Math.floor(Math.random() * screen.WIDTH);
+    const y = Math.floor(Math.random() * screen.HEIGHT);
+    r.DrawCircle(x, y, 5, color);
 }
 
 function draw(world) {
     r.BeginDrawing();
-    r.ClearBackground(r.BLUE);
+    r.ClearBackground(r.DARKBLUE);
     const color = { r: 255, g: 255, b: 255, a: 180 };
 
     for (let i = 0; i < 80; i++) {
-        drawPoints(world, color);
+        drawPoints(world.screen, color);
     }
 
     r.EndDrawing();

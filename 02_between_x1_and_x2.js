@@ -5,7 +5,7 @@ function setup() {
         screen: {
             WIDTH: 400,
             HEIGHT: 300,
-            FPS: 50,
+            FPS: 30,
             TITLE: "Random between x1 and x2",
         },
     };
@@ -25,7 +25,7 @@ function drawLines(screen) {
 
 function draw(world) {
     r.BeginDrawing();
-    r.ClearBackground(r.BLUE);
+    r.ClearBackground(r.DARKBLUE);
     for (let i = 0; i < 50; i++) {
         drawLines(world.screen);
     }
