@@ -6,7 +6,7 @@ function setup() {
             WIDTH: 400,
             HEIGHT: 300,
             FPS: 50,
-            TITLE: "Random",
+            TITLE: "Random between x1 and x2",
         },
     };
 
@@ -18,14 +18,17 @@ function setup() {
     return world;
 }
 
+function drawLines(screen) {
+    const x = Math.floor(Math.random() * 200 + 50);
+    r.DrawLine(x, 0, x, screen.HEIGHT, r.WHITE);
+}
+
 function draw(world) {
     r.BeginDrawing();
     r.ClearBackground(r.BLUE);
     for (let i = 0; i < 50; i++) {
-        const x = Math.floor(Math.random() * 200 + 50);
-        r.DrawLine(x, 0, x, world.screen.HEIGHT, r.WHITE);
+        drawLines(world.screen);
     }
-
     r.EndDrawing();
 }
 
