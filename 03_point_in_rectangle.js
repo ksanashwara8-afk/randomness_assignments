@@ -19,8 +19,8 @@ function setup() {
 }
 
 function drawPoints(world, color) {
-    const x = Math.floor(Math.random() * world.screen.WIDTH + 0);
-    const y = Math.floor(Math.random() * world.screen.HEIGHT + 0);
+    const x = Math.floor(Math.random() * world.screen.WIDTH);
+    const y = Math.floor(Math.random() * world.screen.HEIGHT);
     r.DrawCircle(x, y, 3, color);
 }
 

@@ -8,12 +8,6 @@ function setup() {
             FPS: 50,
             TITLE: "Random",
         },
-        rect: {
-            x: 50,
-            y: 50,
-            width: 200,
-            height: 150,
-        },
     };
 
     r.SetTraceLogLevel(r.LOG_NONE);
@@ -24,17 +18,19 @@ function setup() {
     return world;
 }
 
+function drawPoints(world, color) {
+    const x = Math.floor(Math.random() * world.screen.WIDTH);
+    const y = Math.floor(Math.random() * world.screen.HEIGHT);
+    r.DrawCircle(x, y, 3, color);
+}
+
 function draw(world) {
     r.BeginDrawing();
     r.ClearBackground(r.BLUE);
-
-    r.DrawRectangleRect(world.rect, r.WHITE);
     const color = { r: 255, g: 255, b: 255, a: 180 };
 
     for (let i = 0; i < 80; i++) {
-        const x = Math.floor(Math.random() * world.screen.WIDTH + 0);
-        const y = Math.floor(Math.random() * world.screen.HEIGHT + 0);
-        r.DrawCircle(x, y, 3, color);
+        drawPoints(world, color);
     }
 
     r.EndDrawing();

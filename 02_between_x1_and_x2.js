@@ -19,7 +19,7 @@ function setup() {
 }
 
 function drawLines(screen) {
-    const x = Math.floor(Math.random() * 200 + 50);
+    const x = Math.floor(Math.random() * (200 - 50) + 50);
     r.DrawLine(x, 0, x, screen.HEIGHT, r.WHITE);
 }
 
