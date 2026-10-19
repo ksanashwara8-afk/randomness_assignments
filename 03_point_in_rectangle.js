@@ -23,7 +23,7 @@ function draw(world) {
     r.ClearBackground(r.BLUE);
     const color = { r: 255, g: 255, b: 255, a: 180 };
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 80; i++) {
         const x = Math.floor(Math.random() * world.screen.WIDTH + 0);
         const y = Math.floor(Math.random() * world.screen.HEIGHT + 0);
         r.DrawCircle(x, y, 3, color);
