@@ -4,7 +4,7 @@ function setup() {
     const world = {
         screen: {
             WIDTH: 400,
-            HEIGHT: 300,
+            HEIGHT: 400,
             FPS: 30,
             TITLE: "Random between 0 and x",
         },
@@ -18,17 +18,22 @@ function setup() {
     return world;
 }
 
-function drawLines(screen) {
-    const x = Math.floor(Math.random() * 400);
-    r.DrawLine(x, 0, x, screen.HEIGHT, r.WHITE);
+function drawLines(screen, point) {
+    r.DrawLine(point, 0, point, screen.HEIGHT, r.WHITE);
+}
+function getPoint() {
+    if (r.IsKeyPressed(r.KEY_ENTER)) {
+        return Math.random() * 400;
+    }
 }
 
 function draw(world) {
     r.BeginDrawing();
     r.ClearBackground(r.DARKBLUE);
     for (let i = 0; i < 50; i++) {
-        drawLines(world.screen);
+        drawLines(world.screen, getPoint());
     }
+
     r.EndDrawing();
 }
 
