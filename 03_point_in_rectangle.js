@@ -7,13 +7,13 @@ function getPoint(screen) {
 }
 
 function setup() {
-    screen = {
+    const screen = {
         WIDTH: 400,
         HEIGHT: 300,
         FPS: 30,
         TITLE: "Random points",
     };
-    points = [];
+    const points = [];
 
     for (let i = 0; i < 150; i++) points.push(getPoint(screen));
 

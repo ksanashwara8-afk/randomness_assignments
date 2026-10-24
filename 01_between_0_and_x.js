@@ -5,13 +5,13 @@ function getPoint(x) {
 }
 
 function setup() {
-    screen = {
+    const screen = {
         WIDTH: 400,
         HEIGHT: 300,
         FPS: 30,
         TITLE: "Random between 0 and x",
     };
-    points = [];
+    const points = [];
 
     for (let i = 0; i < 40; i++) points.push(getPoint(screen.WIDTH));
 
