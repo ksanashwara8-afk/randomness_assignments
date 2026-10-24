@@ -5,25 +5,22 @@ function getPoint(x) {
 }
 
 function setup() {
-    const world = {
-        screen: {
-            WIDTH: 400,
-            HEIGHT: 300,
-            FPS: 30,
-            TITLE: "Random between 0 and x",
-        },
-        points: [],
+    screen = {
+        WIDTH: 400,
+        HEIGHT: 300,
+        FPS: 30,
+        TITLE: "Random between 0 and x",
     };
+    points = [];
 
-    for (let i = 0; i < 40; i++)
-        world.points.push(getPoint(world.screen.WIDTH));
+    for (let i = 0; i < 40; i++) points.push(getPoint(screen.WIDTH));
 
     r.SetTraceLogLevel(r.LOG_NONE);
-    r.InitWindow(world.screen.WIDTH, world.screen.HEIGHT, world.screen.TITLE);
-    r.SetTargetFPS(world.screen.FPS);
+    r.InitWindow(screen.WIDTH, screen.HEIGHT, screen.TITLE);
+    r.SetTargetFPS(screen.FPS);
     r.SetConfigFlags(r.FLAG_WINDOW_HIGHDPI);
 
-    return world;
+    return { screen, points };
 }
 
 function drawLines(screen, point) {
