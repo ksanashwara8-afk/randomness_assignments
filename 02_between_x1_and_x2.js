@@ -1,5 +1,9 @@
 const r = require("raylib");
 
+function getPoint(x1, x2) {
+    return Math.random() * (x2 - x1) + x1;
+}
+
 function setup() {
     const world = {
         screen: {
@@ -8,7 +12,10 @@ function setup() {
             FPS: 30,
             TITLE: "Random between x1 and x2",
         },
+        points: [],
     };
+
+    for (let i = 0; i < 40; i++) world.points.push(getPoint(50, 200));
 
     r.SetTraceLogLevel(r.LOG_NONE);
     r.InitWindow(world.screen.WIDTH, world.screen.HEIGHT, world.screen.TITLE);
@@ -18,17 +25,18 @@ function setup() {
     return world;
 }
 
-function drawLines(screen) {
-    const x = Math.floor(Math.random() * (200 - 50) + 50);
-    r.DrawLine(x, 0, x, screen.HEIGHT, r.WHITE);
+function drawLines(screen, point) {
+    r.DrawLine(point, 0, point, screen.HEIGHT, r.WHITE);
 }
 
 function draw(world) {
     r.BeginDrawing();
     r.ClearBackground(r.DARKBLUE);
-    for (let i = 0; i < 50; i++) {
-        drawLines(world.screen);
+
+    for (const point of world.points) {
+        drawLines(world.screen, point);
     }
+
     r.EndDrawing();
 }
 

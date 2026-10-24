@@ -1,21 +1,22 @@
 const r = require("raylib");
 
-function getPoint() {
-    return Math.random() * 400;
+function getPoint(x) {
+    return Math.random() * x;
 }
 
 function setup() {
     const world = {
         screen: {
             WIDTH: 400,
-            HEIGHT: 400,
+            HEIGHT: 300,
             FPS: 30,
             TITLE: "Random between 0 and x",
         },
         points: [],
     };
 
-    for (let i = 0; i < 40; i++) world.points.push(getPoint());
+    for (let i = 0; i < 40; i++)
+        world.points.push(getPoint(world.screen.WIDTH));
 
     r.SetTraceLogLevel(r.LOG_NONE);
     r.InitWindow(world.screen.WIDTH, world.screen.HEIGHT, world.screen.TITLE);
